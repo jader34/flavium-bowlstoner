@@ -1,0 +1,6 @@
+{
+  "name": "Dossiê Flavium Bowlstoner — Ficha & Crônica D&D 5e",
+  "description": "Dossiê oficial confidencial e ficha de personagem D&D 5e de Flavium Bowlstoner, nobre caído e herdeiro da Casa Bowlstoner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

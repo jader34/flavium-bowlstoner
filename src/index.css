@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'IM Fell English SC', 'Times New Roman', Times, Georgia, serif;
+  --font-body: 'Spectral', 'Georgia', Cambria, serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+
+  --color-parchment: #EDE4D3;
+  --color-parchment-dark: #DED2BC;
+  --color-parchment-light: #F7F2E8;
+  --color-ink: #14110E;
+  --color-ink-muted: #6B6155;
+  --color-ink-faint: #8E8273;
+  --color-blood: #8C1C13;
+  --color-blood-dark: #67140D;
+  --color-gold: #C8A24A;
+  --color-gold-dark: #9A7B31;
+  --color-mercury: #9BB7C4;
+  --color-mercury-dark: #6C8E9F;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  line-height: 1.5;
+  /* Compensate for persistent bottom mobile combat bar */
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Fast touch response without double-tap delay */
+button,
+a,
+input,
+label,
+[role="button"],
+[role="tab"] {
+  touch-action: manipulation;
+}
+
+/* Section scroll margin so sticky top header doesn't cover section titles */
+section,
+[id^="sec-"] {
+  scroll-margin-top: 5.5rem;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" on, "zero" on;
+}
+
+/* Scroll containment for internal boxes */
+.contain-scroll {
+  overscroll-behavior: contain;
+}
+
+/* Subtle paper texture overlay */
+.bg-parchment-texture {
+  background-color: #EDE4D3;
+  background-image: radial-gradient(#14110E 0.45px, transparent 0.45px), radial-gradient(#8C1C13 0.25px, #EDE4D3 0.25px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+.bg-dark-parchment {
+  background-color: #14110E;
+  background-image: radial-gradient(rgba(200, 162, 74, 0.08) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+}
+
+/* Modo Mesa (Tabletop Mode): high contrast, slightly lighter dark surface, boosted typography */
+.tabletop-mode {
+  --color-ink: #0A0806;
+  --color-ink-muted: #4F453B;
+  --color-parchment: #F2EBE0;
+  --color-parchment-light: #FDFAF5;
+}
+
+.tabletop-mode body {
+  background-color: #F2EBE0;
+  color: #0A0806;
+  font-size: 17px;
+}
+
+.tabletop-mode .bg-dark-parchment,
+.tabletop-mode .bg-\[\#14110E\] {
+  background-color: #1F1B17 !important;
+}
+
+.tabletop-mode .text-\[\#EDE4D3\] {
+  color: #FFF9EE !important;
+}
+
+.tabletop-mode .text-\[\#C8A24A\] {
+  color: #DFC06B !important;
+}
+
+.tabletop-mode .text-\[\#8C1C13\] {
+  color: #A9261B !important;
+}
+
+/* Hard paper border and print edge effects */
+.border-parchment-fine {
+  border: 1px solid rgba(20, 17, 14, 0.2);
+}
+
+.border-gold-fine {
+  border: 1px solid #C8A24A;
+}
+
+.border-blood-fine {
+  border: 1px solid #8C1C13;
+}
+
+/* Hard shadow as requested in prompt: sombras curtas e duras, como impressão sobreposta */
+.shadow-hard {
+  box-shadow: 2px 2px 0px rgba(20, 17, 14, 0.85);
+}
+
+.shadow-hard-gold {
+  box-shadow: 2px 2px 0px #C8A24A;
+}
+
+.shadow-hard-blood {
+  box-shadow: 2px 2px 0px #8C1C13;
+}
+
+.shadow-hard-ink {
+  box-shadow: 3px 3px 0px rgba(20, 17, 14, 0.95);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
